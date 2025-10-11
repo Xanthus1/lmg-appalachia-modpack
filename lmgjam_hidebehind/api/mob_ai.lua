@@ -275,7 +275,7 @@ end
 -- Actions --
 -------------
 
-creatura.register_utility("hidebehind:sneak_towards_player", function(self, target)
+creatura.register_utility("lmgjam_hidebehind:sneak_towards_player", function(self, target)
 	local on_cooldown = false
 	local timer = 0.5
 
@@ -360,7 +360,7 @@ hidebehind.mob_ai.flee_and_hide = {
 }
 
 hidebehind.mob_ai.sneak_towards_player = {
-	utility = "hidebehind:sneak_towards_player",
+	utility = "lmgjam_hidebehind:sneak_towards_player",
 	get_score = function(self)
 		local player = creatura.get_nearby_player(self)
 		if player then

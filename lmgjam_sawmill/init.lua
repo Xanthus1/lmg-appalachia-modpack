@@ -219,7 +219,7 @@ core.register_node("lmgjam_sawmill:conveyor_active", {
 
         local moves={vector.add(pos,vector.add(front,down)),vector.add(pos,front),vector.add(pos,vector.add(front,up)),vector.add(pos,up),vector.add(pos,vector.add(back,up)),vector.add(pos,back),vector.add(pos,vector.add(back,down))}
         for i=1,#moves-1 do
-            if core.get_node(moves[i]).name=="air" and core.get_node_group(core.get_node(moves[i+1]).name,"tree") > 0 and core.get_meta(moves[i+1]):get_int("time_moved") ~= core.get_gametime() then
+            if (core.get_node(moves[i]).name=="air" or core.get_item_group(core.get_node(moves[i]).name,"water") > 0) and core.get_node_group(core.get_node(moves[i+1]).name,"tree") > 0 and core.get_meta(moves[i+1]):get_int("time_moved") ~= core.get_gametime() then
                 core.swap_node(moves[i],core.get_node(moves[i+1]))
                 core.get_meta(moves[i]):set_int("time_moved",core.get_gametime())
 

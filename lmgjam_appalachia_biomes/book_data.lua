@@ -35,18 +35,11 @@ appalachia_book_data = {
             "Way down yonder in the paw-paw patch.\n"
     },
     {
-        -- src: https://en.wikipedia.org/wiki/Scotia_Mine
+        -- source: https://en.wikipedia.org/wiki/Scotia_Mine
         description = "Scotia Mine Disaster", -- item display name
         owner = "Respiratory Clinics of Eastern Ky",
         title = "Scotia Mine Disaster", -- in book title
         text = "One of the worst mine disasters in U.S. history. Faulty equipment ignited methane and coal dust due to lack of proper ventilation. On Mar. 9 & 11, 1976, twin explosions took the lives of 26 coal miners and federal mine inspectors in the Scotia mines located in Kentucky. This led to the passage of the Federal Mine Safety & Health Act of 1977"
-    },
-    {
-        description = "Appalachian Dad Jokes Vol 1", -- item display name
-        owner = "Notloc",
-        title = "Appalachian Dad Jokes Vol 1", -- in book title
-        text = "Why did the miner bring a jacket?\n\n"..
-                "Because he was coaled."
     },
     {
         description = "Appalachian Dad Jokes Vol 1", -- item display name

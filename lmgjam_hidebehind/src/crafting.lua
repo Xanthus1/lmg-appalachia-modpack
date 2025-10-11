@@ -3,7 +3,7 @@
 --[[ Example:
 core.register_craft({
     type = "shapeless",
-    output = "hidebehind:lmg_node 2",
+    output = "lmgjam_lmgjam_hidebehind:lmg_node 2",
     recipe = { "default:dirt", "default:stone" },
 })
 

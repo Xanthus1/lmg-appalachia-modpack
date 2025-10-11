@@ -32,10 +32,10 @@ minetest.register_node("my_test_mod:glass_wz", {
 ]]
 
 --[[
-core.register_node("hidebehind:lmg_node", {
+core.register_node("lmgjam_hidebehind:lmg_node", {
     description = "This is an example node for the LMG jam",
     tiles = {"hidebehind_lmg_node.png"},
     groups = {cracky = 1},
-    drop= {"hidebehind:lmg_node2"}  -- todo: add drop
+    drop= {"lmgjam_hidebehind:lmg_node2"}  -- todo: add drop
 })
 --]]

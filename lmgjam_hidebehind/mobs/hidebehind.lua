@@ -4,7 +4,7 @@
 
 local S = core.get_translator("hidebehind")
 
-creatura.register_mob("hidebehind:hidebehind", {
+creatura.register_mob("lmgjam_hidebehind:hidebehind", {
 	-- Engine Props
 	visual_size = {x = 1.5, y = 1.5},
 	mesh = "hidebehind.gltf",
@@ -128,7 +128,7 @@ creatura.register_mob("hidebehind:hidebehind", {
 	on_punch = animalia.punch
 })
 
-creatura.register_abm_spawn("hidebehind:hidebehind", {
+creatura.register_abm_spawn("lmgjam_hidebehind:hidebehind", {
 	chance = 20, -- 1 in X
 	spawn_on_load = true,
 	chance_on_load = 1,
@@ -136,14 +136,14 @@ creatura.register_abm_spawn("hidebehind:hidebehind", {
 	min_height = -1,
 	max_height = 1024,
 	min_group = 1,
-	max_group = 5,
+	max_group = 1,
 	--nodes = {"group:soil"},
 	--biomes = animalia.registered_biome_groups["boreal"].biomes,
 	--nodes = {"group:soil", "group:sand", "group:leaves"},
 })
 
 
-creatura.register_spawn_item("hidebehind:hidebehind", {
+creatura.register_spawn_item("lmgjam_hidebehind:hidebehind", {
 	col1 = "413022",
 	col2 = "d5c0a3"
 })

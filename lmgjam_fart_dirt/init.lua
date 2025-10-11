@@ -1,4 +1,4 @@
-minetest.register_node("fart_dirt:fart_dirt", {
+minetest.register_node("lmgjam_fart_dirt:fart_dirt", {
 	description = "Fart Dirt",
 	tiles = {"default_dirt.png"},
 	groups = {crumbly = 3, soil = 1, not_in_creative_inventory = 1},
@@ -21,7 +21,7 @@ minetest.register_on_generated(function(minp, maxp, blockseed)
 	local area = VoxelArea:new{MinEdge=emin, MaxEdge=emax}
 	
 	local c_dirt = minetest.get_content_id("default:dirt")
-	local c_fart = minetest.get_content_id("fart_dirt:fart_dirt")
+	local c_fart = minetest.get_content_id("lmgjam_fart_dirt:fart_dirt")
 
 	for z = minp.z, maxp.z do
 		for y = minp.y, maxp.y do

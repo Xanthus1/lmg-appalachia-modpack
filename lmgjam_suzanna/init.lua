@@ -1,7 +1,7 @@
 print("This file will be run at load time!")
 
 -- First node: Mine Blast
-core.register_node("lmg_jam_suzanna:node", {
+core.register_node("lmgjam_suzanna:node", {
     description = "Oh Suzanna on Banjo Node",
     tiles = {"lmg_jam_lmg.png"},
     groups = {cracky = 1}
@@ -9,16 +9,16 @@ core.register_node("lmg_jam_suzanna:node", {
 
 core.register_craft({
     type = "shapeless",
-    output = "lmg_jam_suzanna:node 6",
+    output = "lmgjam_suzanna:node 6",
     recipe = { "default:dirt", "default:stone" },
 })
 
 -- Second node: Banjo Block with Multiple Interaction Methods
-core.register_node("lmg_jam_suzanna:su_banjo", {
+core.register_node("lmgjam_suzanna:su_banjo", {
     description = "Banjo Node (Right-click or punch to play!)",
     tiles = { "lmg_jam_banjo.png" },
     groups = { choppy = 2, oddly_breakable_by_hand = 1 },
-    
+
     -- Play when placed
     after_place_node = function(pos, placer, itemstack, pointed_thing)
         core.chat_send_all("Banjo block placed! Right-click or punch to play music!")
@@ -27,13 +27,13 @@ core.register_node("lmg_jam_suzanna:su_banjo", {
         meta:set_int("last_played", 0)
         return true
     end,
-    
+
     -- RIGHT-CLICK to play sound
     on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
         local meta = core.get_meta(pos)
         local last_played = meta:get_int("last_played")
         local current_time = core.get_gametime()
-        
+
         -- 3 second cooldown to prevent spam
         if current_time - last_played > 3 then
             core.chat_send_all(clicker:get_player_name() .. " activated the banjo!")
@@ -45,7 +45,7 @@ core.register_node("lmg_jam_suzanna:su_banjo", {
             meta:set_int("last_played", current_time)
 
             meta:set_int("sound_handle", handle)
-            
+
             if not handle then
                 core.chat_send_all("Sound failed to play!")
             end
@@ -54,7 +54,7 @@ core.register_node("lmg_jam_suzanna:su_banjo", {
         end
         return itemstack
     end,
-    
+
     -- PUNCH to play a shorter sound or stop
     on_punch = function(pos, node, puncher, pointed_thing)
         --core.chat_send_all(puncher:get_player_name() .. " punched the banjo!")
@@ -65,15 +65,15 @@ core.register_node("lmg_jam_suzanna:su_banjo", {
             max_hear_distance = 8,
         })
     end,
-    
+
     -- Cleanup when removed
     on_dig = function(pos, node, digger)
         --core.chat_send_all("Banjo block removed")
-        
+
         local meta = core.get_meta(pos)
         local handle = meta:get_int("sound_handle")
-        
-        
+
+
         core.chat_send_all(tostring(handle))
         if handle and handle > 0 then
             core.sound_stop(handle)
@@ -86,7 +86,7 @@ core.register_node("lmg_jam_suzanna:su_banjo", {
 -- Craft recipe for Banjo Block (using group:wood to accept any wood type)
 core.register_craft({
     type = "shaped",
-    output = "lmg_jam_suzanna:su_banjo 1",
+    output = "lmgjam_suzanna:su_banjo 1",
     recipe = {
         {"", "group:wood",""},
         {"group:wood", "farming:cotton",  "group:wood"},
@@ -102,7 +102,7 @@ core.register_chatcommand("test_banjo_sound", {
         local player = core.get_player_by_name(name)
         if player then
             core.chat_send_all("Testing banjo sound for player: " .. name)
-            local handle = core.sound_play("lmg_jam_suzanna_oh_suzanna", {
+            local handle = core.sound_play("lmgjam_suzanna_oh_suzanna", {
                 to_player = name,
                 gain = 1.0,
             })
@@ -123,15 +123,15 @@ core.register_chatcommand("test_sound_methods", {
         if not player then
             return false, "Player not found!"
         end
-        
+
         core.chat_send_all("=== Testing 4 different sound methods ===")
-        
+
         -- Method 1: Global sound (everyone hears it)
         core.chat_send_all("Method 1: Global sound...")
         core.sound_play("default_dig_choppy", {
             gain = 2.0,
         })
-        
+
         -- Wait a moment
         core.after(2, function()
             -- Method 2: Positional sound at player
@@ -143,7 +143,7 @@ core.register_chatcommand("test_sound_methods", {
                 max_hear_distance = 100,
             })
         end)
-        
+
         -- Method 3: Object sound (attached to player)
         core.after(4, function()
             core.chat_send_all("Method 3: Attached to player object...")
@@ -152,13 +152,13 @@ core.register_chatcommand("test_sound_methods", {
                 gain = 2.0,
             })
         end)
-        
+
         -- Method 4: Simple call with just gain
         core.after(6, function()
             core.chat_send_all("Method 4: Simplest possible call...")
             core.sound_play("default_dig_choppy")
         end)
-        
+
         return true, "Testing 4 methods over 6 seconds. Watch chat and listen!"
     end,
 })
@@ -168,7 +168,7 @@ core.register_chatcommand("test_banjo_simple", {
     description = "Test banjo with simplest sound call",
     func = function(name, param)
         core.chat_send_all("Playing banjo sound with NO parameters...")
-        local handle = core.sound_play("lmg_jam_suzanna_oh_suzanna")
+        local handle = core.sound_play("lmgjam_suzanna_oh_suzanna")
         if handle then
             return true, "Banjo sound called with handle: " .. tostring(handle)
         else

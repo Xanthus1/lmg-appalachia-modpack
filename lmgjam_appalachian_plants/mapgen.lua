@@ -66,8 +66,6 @@ core.register_decoration({
         "default:dirt_with_grass",
         "default:dry_dirt_with_dry_grass",
         "default:snowblock",
-        "default:stone",
-        "default:sand"
     },
     sidelen = 16,
     fill_ratio = 0.001,
