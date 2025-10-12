@@ -168,7 +168,7 @@ creatura.register_mob("lmgjam_notloc_alpac_alachia:alpaca", {
 })
 
 creatura.register_abm_spawn("lmgjam_notloc_alpac_alachia:alpaca", {
-	chance = 20, -- 1 in X
+	chance = 7000, -- 1 in X
 	spawn_on_load = true,
 	chance_on_load = 1,
 	interval = 15,
@@ -176,7 +176,7 @@ creatura.register_abm_spawn("lmgjam_notloc_alpac_alachia:alpaca", {
 	max_height = 1024,
 	min_group = 1,
 	max_group = 5,
-	--nodes = {"group:soil"},
+	nodes = {"group:soil"},
 	--biomes = animalia.registered_biome_groups["boreal"].biomes,
 	--nodes = {"group:soil", "group:sand", "group:leaves"},
 })

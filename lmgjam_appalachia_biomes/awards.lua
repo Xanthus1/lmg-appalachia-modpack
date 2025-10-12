@@ -80,7 +80,7 @@ if core.get_modpath("awards") then
         end
     end
 
-    if core.get_modpath("hidebehind") then
+    if core.get_modpath("lmgjam_hidebehind") then
         awards.register_award("lmgjam_appalachia_biomes:hidebehind", {
             description = "Fight back against a HideBehind",
             title =  "Hit HideBehind",
@@ -88,7 +88,7 @@ if core.get_modpath("awards") then
             icon = "hide_behind_award.png"
         })
 
-        local hide_behind_def = core.registered_entities["hidebehind:hidebehind"]
+        local hide_behind_def = core.registered_entities["lmgjam_hidebehind:hidebehind"]
         local old_on_punch = hide_behind_def.on_punch
         hide_behind_def.on_punch = function(self, puncher, time_from_last_punch, tool_capabilities, dir, damage)
             local player_name = puncher:get_player_name()
@@ -97,13 +97,13 @@ if core.get_modpath("awards") then
         end
     end
 
-    if core.get_modpath("fart_dirt") then
+    if core.get_modpath("lmgjam_fart_dirt") then
         awards.register_award("lmgjam_appalachia_biomes:fart_dirt", {
             description = "Was that a bullfrog I heard while digging dirt?",
             title =  "Find 5 fart blocks",
             trigger = {
                 type   = "dig",
-                node   = "fart_dirt:fart_dirt",
+                node   = "lmgjam_fart_dirt:fart_dirt",
                 target = 5,
             },
             icon = "default_dirt.png"

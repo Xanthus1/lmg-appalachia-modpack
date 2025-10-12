@@ -2,13 +2,13 @@
 -- Hidebehind --
 ----------------
 
-local S = core.get_translator("hidebehind")
+local S = core.get_translator("lmgjam_hidebehind")
 
 creatura.register_mob("lmgjam_hidebehind:hidebehind", {
 	-- Engine Props
 	visual_size = {x = 1.5, y = 1.5},
-	mesh = "hidebehind.gltf",
-	textures = {"hidebehind.png"},
+	mesh = "lmgjam_hidebehind.gltf",
+	textures = {"lmgjam_hidebehind.png"},
 	--child_textures = {},
 	makes_footstep_sound = true,
 
@@ -129,7 +129,7 @@ creatura.register_mob("lmgjam_hidebehind:hidebehind", {
 })
 
 creatura.register_abm_spawn("lmgjam_hidebehind:hidebehind", {
-	chance = 20, -- 1 in X
+	chance = 12000, -- 1 in X
 	spawn_on_load = true,
 	chance_on_load = 1,
 	interval = 15,
@@ -137,7 +137,7 @@ creatura.register_abm_spawn("lmgjam_hidebehind:hidebehind", {
 	max_height = 1024,
 	min_group = 1,
 	max_group = 1,
-	--nodes = {"group:soil"},
+	nodes = {"group:soil"},
 	--biomes = animalia.registered_biome_groups["boreal"].biomes,
 	--nodes = {"group:soil", "group:sand", "group:leaves"},
 })

@@ -53,7 +53,7 @@ core.register_decoration({
 --     y_max = 200,
 --     y_min = 1,
 --     place_offset_y = 1, -- above ground
---     schematic = core.get_modpath("hidebehind") .. "/schematics/lmg_arch.mts",
+--     schematic = core.get_modpath("lmgjam_hidebehind") .. "/schematics/lmg_arch.mts",
 --     flags = "place_center_x, place_center_z",
 --     rotation = "random",
 -- })
@@ -76,7 +76,7 @@ core.register_decoration({
     y_max = 200,
     y_min = 1,
     place_offset_y = 1, -- above ground
-    decoration = "hidebehind:lmg_node",
+    decoration = "lmgjam_hidebehind:lmg_node",
     flags = "place_center_x, place_center_z",
     rotation = "random",
 })

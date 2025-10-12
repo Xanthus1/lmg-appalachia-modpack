@@ -167,7 +167,7 @@ function register_appalachian_decorations()
 		sidelen = 16,
 		noise_params = {
 			offset = 0.0003,
-			scale = 0.015,
+			scale = 0.005,
 			spread = {x = 250, y = 250, z = 250},
 			seed = 2,
 			octaves = 3,
@@ -211,7 +211,7 @@ function register_appalachian_decorations()
 		sidelen = 16,
 		noise_params = {
 			offset = 0.0003,
-			scale = 0.0007,
+			scale = 0.0003,
 			spread = {x = 250, y = 250, z = 250},
 			seed = 2,
 			octaves = 3,
@@ -313,25 +313,6 @@ function register_appalachian_biome()
         humidity_point = 68,
     })
 
-    -- from taiga. Needed because snow blocks still spawn?
-    -- core.register_biome({
-	-- 	name = "appalachia_snow",
-	-- 	node_dust = "default:snow",
-	-- 	node_top = "default:dirt_with_snow",
-	-- 	depth_top = 1,
-	-- 	node_filler = "default:dirt",
-	-- 	depth_filler = 3,
-	-- 	node_riverbed = "default:sand",
-	-- 	depth_riverbed = 2,
-	-- 	node_dungeon = "default:cobble",
-	-- 	node_dungeon_alt = "default:mossycobble",
-	-- 	node_dungeon_stair = "stairs:stair_cobble",
-	-- 	y_max = 31000,
-	-- 	y_min = 4,
-	-- 	heat_point = 25,
-	-- 	humidity_point = 60,
-	-- })
-
     -- from grassland
     core.register_biome({
 		name = "appalachia_grassland",
@@ -364,63 +345,8 @@ function register_appalachian_biome()
 	})
 end
 
-keep_biomes = {}
-core.register_on_mods_loaded(function()
-    for name, biomedef in pairs(core.registered_biomes) do
-        local found = false
-        for _,value in ipairs(keep_biomes) do
-            if value == name then
-                found = true
-            end
-        end
-        if found == false then
-            core.unregister_biome(name)
-        else
-            local new_biome_def = table.co1py(biomedef)
-            new_biome_def["y_min"] = new_water_level + 2
-            core.unregister_biome(name)
-            core.register_biome(new_biome_def)
-        end
-    end
-    register_appalachian_biome()
-
-    new_decorations = {}
-    for name, decoration_def in pairs(core.registered_decorations) do
-        local in_deciduous_biome = false
-		-- decoration_def["biomes"] is nil when creatura/animalia is used?
-
-		if decoration_def["biomes"] then
-			for _, biome_name in ipairs(decoration_def["biomes"]) do
-				if string.find(biome_name, "deciduous_forest") then
-					in_deciduous_biome = true
-				end
-			end
-
-			if in_deciduous_biome then
-				-- adding biome to decoration registration
-				table.insert(decoration_def["biomes"],"appalachia_deciduous_forest")
-
-				-- registering new decoration for biome
-				new_biomes = table.copy(decoration_def["biomes"])
-				table.insert(decoration_def["biomes"],"appalachia_deciduous_forest")
-				if in_deciduous_biome then
-					new_decorations[name] = decoration_def
-				end
-			end
-		end
-    end
-    -- clear all decorations and register appalachia decorations
-    core.clear_registered_decorations()
-    register_appalachian_decorations()
-
-    -- re-register non-tree decorations
-    -- for name, decoration_def in pairs(new_decorations) doLal
-    --     if not string.find(name, "tree") then
-    --         decoration_def["name"] = name
-    --         core.register_decoration(decoration_def)
-    --     end
-    -- end
-end)
+register_appalachian_biome()
+register_appalachian_decorations()
 
 -- registering Chests that can be placed by
 -- schematics to have a written book
@@ -510,3 +436,32 @@ if core.get_modpath('schemedit') == nil then
 		end,
 	})
 end
+
+-- Only keep appalachia biomes / decorations
+-- keep_biomes = {
+-- 	"appalachia_deciduous_forest",
+-- 	"appalachia_grasslands",
+-- 	"appalachia_under"
+-- }
+-- core.register_on_mods_loaded(function()
+--     for name, biomedef in pairs(core.registered_biomes) do
+--         local found = false
+--         for _,value in ipairs(keep_biomes) do
+--             if value == name then
+--                 found = true
+--             end
+--         end
+--         if found == false then
+--             core.unregister_biome(name)
+--         else
+--             local new_biome_def = table.copy(biomedef)
+--             core.unregister_biome(name)
+--             core.register_biome(new_biome_def)
+--         end
+--     end
+--     register_appalachian_biome()
+
+--     -- clear all decorations and register appalachia decorations
+--     core.clear_registered_decorations()
+--     register_appalachian_decorations()
+-- end)
