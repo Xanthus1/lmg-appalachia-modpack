@@ -1,0 +1,1 @@
+License varies based on each mod and mod creator. View specific mod folder for the license of each mod.
