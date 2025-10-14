@@ -124,7 +124,7 @@ function register_appalachian_decorations()
 		place_on = {"default:dirt_with_grass"},
 		sidelen = 16,
 		noise_params = {
-			offset = 0.005,
+			offset = 0.004,
 			scale = 0.0005,
 			spread = {x = 250, y = 250, z = 250},
 			seed = 2,
@@ -145,7 +145,7 @@ function register_appalachian_decorations()
 		place_on = {"default:dirt_with_grass"},
 		sidelen = 16,
 		noise_params = {
-			offset = 0.024,
+			offset = 0.02,
 			scale = 0.015,
 			spread = {x = 250, y = 250, z = 250},
 			seed = 2,
@@ -210,7 +210,7 @@ function register_appalachian_decorations()
 		place_offset_y = 1,
 		sidelen = 16,
 		noise_params = {
-			offset = 0.0003,
+			offset = 0.0001,
 			scale = 0.0003,
 			spread = {x = 250, y = 250, z = 250},
 			seed = 2,
@@ -234,7 +234,7 @@ function register_appalachian_decorations()
 		place_offset_y = -7,
 		sidelen = 16,
 		noise_params = {
-			offset = 0.00006,
+			offset = 0.00007,
 			scale = 0.0007,
 			spread = {x = 250, y = 250, z = 250},
 			seed = 1337,
@@ -309,8 +309,9 @@ function register_appalachian_biome()
         node_dungeon_stair = "stairs:stair_cobble",
         y_max = 31000,
         y_min = 1,
-        heat_point = 60,
-        humidity_point = 68,
+        heat_point = 55,
+        humidity_point = 72,
+		weight = 1.5
     })
 
     -- from grassland
@@ -327,9 +328,9 @@ function register_appalachian_biome()
 		node_dungeon_stair = "stairs:stair_cobble",
 		y_max = 31000,
 		y_min = 6,
-		heat_point = 50,
-		humidity_point = 35,
-        weight = 0.5
+		heat_point = 45,
+		humidity_point = 40,
+        weight = 1.5
 	})
 
 	core.register_biome({
@@ -340,8 +341,9 @@ function register_appalachian_biome()
 		node_dungeon_stair = "stairs:stair_cobble",
 		y_max = 0,
 		y_min = -31000,
-		heat_point = 60,
-		humidity_point = 68,
+		heat_point = 55,
+		humidity_point = 72,
+		weight = 1.5
 	})
 end
 

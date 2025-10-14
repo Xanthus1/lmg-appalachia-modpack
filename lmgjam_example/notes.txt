@@ -1,4 +1,0 @@
-- The modding book is a good base reference for how to do basic tasks:
-    - https://rubenwardy.com/minetest_modding_book/en/basics/getting_started.html
-- Look at more details and specifics in API documentation:
-    - https://github.com/luanti-org/luanti/blob/5.11.0/doc/lua_api.md

@@ -129,7 +129,7 @@ creatura.register_mob("lmgjam_hidebehind:hidebehind", {
 })
 
 creatura.register_abm_spawn("lmgjam_hidebehind:hidebehind", {
-	chance = 12000, -- 1 in X
+	chance = 9000, -- 1 in X blocks will spawn per minute
 	spawn_on_load = true,
 	chance_on_load = 1,
 	interval = 15,
