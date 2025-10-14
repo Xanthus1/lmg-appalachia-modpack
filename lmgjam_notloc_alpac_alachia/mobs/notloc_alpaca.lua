@@ -168,7 +168,7 @@ creatura.register_mob("lmgjam_notloc_alpac_alachia:alpaca", {
 })
 
 creatura.register_abm_spawn("lmgjam_notloc_alpac_alachia:alpaca", {
-	chance = 7000, -- 1 in X
+	chance = 7000, -- 1 in X blocks will spawn per minute
 	spawn_on_load = true,
 	chance_on_load = 1,
 	interval = 15,
