@@ -1,12 +1,9 @@
-# Boomshine Mod
+# Fart Dirt Mod
 
-By Justin Moore.
+Code by Justin Moore.
 
-Fart sound by https://pixabay.com/sound-effects/wet-fart-335478/,
-
+Fart sound by Xanthus.
 
 ## License
 
-Fart sound Licensed by Pixabay's content license: https://pixabay.com/service/license-summary/
-
-Everything else in the mod by Justin Moore is marked CC0 1.0. To view a copy of this mark, visit https://creativecommons.org/publicdomain/zero/1.0/
+Marked CC0 1.0. To view a copy of this mark, visit https://creativecommons.org/publicdomain/zero/1.0/
